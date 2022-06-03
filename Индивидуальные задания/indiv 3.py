@@ -1,4 +1,11 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-i =input('Введите число: ')
-print('Да' if int(i)%sum(map(int, list(i)))==0 else 'Нет')
+
+s = 0
+
+for num in range(21, 99):
+
+   if (num % 3 == 0):
+       s += num
+
+print(s)

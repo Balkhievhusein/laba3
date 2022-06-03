@@ -1,17 +1,28 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-a, b, c = map(int, input('Введите a, b, c через пробел: ').split())
-D = b*b - 4*a*c
 
-x = []
+x = int(input("значения x: "))
+y = int(input("значения y: "))
 
-if D < 0:
-    print('Действительных корней нет')
+max_1 = 0 # max^2(x^2y, xy^2)
+min_2 = 0 # min^2(x-y, x+2y)
+u = 0
+
+expression_1 = ((x**2)*y) # x^2y
+expression_2 = (x*(y**2)) # xy^2y
+expression_3 = (x-y) # x-y
+expression_4 = (x+2*y) # x+2y
+
+if expression_1 > expression_2:
+    max_1 = ((x**2)*y) ** 2
 else:
-    t1 = (-b+D**(1/2))/(2*c)
-    t2 = (-b-D**(1/2))/(2*c)
+    max_1 =(x*(y**2)) ** 2
 
-    if t1 >= 0: x.append(t1**(1/2))
-    if t2 >= 0: x.append(t2**(1/2))
+if expression_3 < expression_4:
+    min_2 = (x-y) ** 2
+else:
+    min_2 = (x+2*y) ** 2
 
-    print('Действительные корни:', *x, sep=' '+chr(177))
+u = max_1 + min_2
+
+print(u)
